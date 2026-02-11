@@ -81,34 +81,55 @@ If we have to compare the two images, to see which one is more clear or which ha
 we can easily notice the pattern of the exponentional growth.
 The famous gray scale image is of 8 bpp , means it has 256 different colors in it or 256 shades.
 
+Shades = numbers of colors = 2^n, n = bits
 
+In pixel black color is 0, but there is no fix value for white color. White color = 2^n - 1
+Gray color is midpoint of white and black
 
-## Additive Color Theory (RGB) & Substractive (CMYK)
+**Image Size** = rows * cols * bpp(n of 2^n)
 
+## RGB vs CMYK and Color Conversion
+
+Both use red green blue color combinations.
+
+### RGB
+
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+
+Color conversion
+Ex. rgb(202, 87, 51)
+
+202/16 = 12 thats remainder 10 -> # 12 10 -> C A
+87/16 = 5 thats remainder 7 -> #CA 5 7
 ...
 
-## Bit Depth (1-bit, 8-bit, 24-bit True Color)
+### CMYK
 
-...
-
-## Alpha Channel & Transparency Composition
-
-...
-
-## Color Room (sRGB, Adobe RGB, DCI-P3)
-
-...
+CYAN = (0, 255, 255)
+MAGENTA = (255, 0, 255)
+YELLOW = (255, 255, 0)
+BLACK = (0, 0, 0)
 
 # Dinamika Display
 
 ## Refresh Rate (Hz) vs. Frame Rate (FPS)
 
-...
+**Frame Rate** is the ability GPU to produce frame per second.
+**Refresh Rate** is the ability monitor to refresh screen per second
 
 ## Response Time & Input Lag
 
-...
+**Rensponse Time** is time for pixels to change from one color to another
+**Input Lag** iWaktu yang dibutuhkan sejak kamu menekan tombol (mouse/keyboard) hingga aksi tersebut muncul di layar. Ini melibatkan prosesor monitor, kabel, dan GPU.
+
 
 ## Teknologi Panel (LCD, OLED, MicroLED)
 
 ...
+
+
+# Further Reading
+
+https://www.uni-weimar.de/fileadmin/user/fak/medien/professuren/Computer_Graphics/course_material/Graphics___Animation/5-GFX-pipeline.pdf
