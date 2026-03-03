@@ -127,6 +127,25 @@ Owners / contact for questions.
 * Solution 04: Changing Dimension
 
 
-# Data Warehousing
+# Data Warehousing(source system ->  staging area)
 
-source system ->  staging area
+source systems (OLTP, files, APIs)
+        |
+        v
+   staging area (raw extracts, same shape as source)
+        |
+   cleansing & transformation
+        |
+        v
+data warehouse (dimensions + facts + aggregates)
+        |
+        v
+BI / Reporting / Data Products
+
+
+
+Staging area holds raw extracts for replay and debugging.
+
+DW contains curated, documented data optimized for analysis.
+
+BI layer reads from DW (or materialized aggregates) for dashboards and reports.
