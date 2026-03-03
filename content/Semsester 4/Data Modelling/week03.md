@@ -3,12 +3,11 @@
 title: Week 3
 draft: false
 tags:
-
-* college
-* computer science
-* fourth semester
-* data
-* data modelling
+  - college
+  - computer science
+  - fourth semester
+  - data
+  - data modelling
 
 ---
 
