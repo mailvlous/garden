@@ -8,13 +8,13 @@ tags:
   - semester 5
 ---
 ### ETS
-statistika deskriptif
-probabilitas
-distribusi diskrit
+- statistika deskriptif
+- probabilitas
+- distribusi diskrit
 \
 \
 \
 ### EAS
-distribusi kontinu
-model prediks
-telaah artikel ilmiah
+- distribusi kontinu
+- model prediks
+- telaah artikel ilmiah
