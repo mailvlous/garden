@@ -1,16 +1,20 @@
 ---
+title: introduction
+draft: false
 tags:
   - college
   - statistic
   - math
   - semester 5
-title: introduction
-draft: false
 ---
-
+### ETS
 statistika deskriptif
 probabilitas
 distribusi diskrit
+\
+\
+\
+### EAS
 distribusi kontinu
 model prediks
 telaah artikel ilmiah
