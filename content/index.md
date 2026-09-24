@@ -9,7 +9,8 @@ tags: []
 
 Hello my name is mail/ismail
 
-This is my digital garden where i put my notes or my thoughts everyday and at the same time promoting learning in public so that not only I can gain knowledge, but others can too!
+This is my little digital garden where I write my thoughts, notes, and what I learn everyday. I keep it public so while I learn and grow, maybe someone else can learn something from it too!!
+
 
 ### About Me
 
