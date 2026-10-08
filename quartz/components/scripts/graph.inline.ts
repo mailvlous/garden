@@ -85,6 +85,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     opacityScale,
     removeTags,
     showTags,
+    tagOnly,
     focusOnHover,
     enableRadial,
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
@@ -98,33 +99,51 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const links: SimpleLinkData[] = []
   const tags: SimpleSlug[] = []
   const validLinks = new Set(data.keys())
+  const tagLinkKeys = new Set<string>()
 
   const tweens = new Map<string, TweenNode>()
   for (const [source, details] of data.entries()) {
     const outgoing = details.links ?? []
 
-    for (const dest of outgoing) {
-      if (validLinks.has(dest)) {
-        links.push({ source: source, target: dest })
+    if (!tagOnly) {
+      for (const dest of outgoing) {
+        if (validLinks.has(dest)) {
+          links.push({ source: source, target: dest })
+        }
       }
     }
 
-    if (showTags) {
+    if (showTags || tagOnly) {
       const localTags = details.tags
         .filter((tag) => !removeTags.includes(tag))
         .map((tag) => simplifySlug(("tags/" + tag) as FullSlug))
 
       tags.push(...localTags.filter((tag) => !tags.includes(tag)))
 
-      for (const tag of localTags) {
-        links.push({ source: source, target: tag })
+      if (tagOnly) {
+        for (let i = 0; i < localTags.length; i++) {
+          for (let j = i + 1; j < localTags.length; j++) {
+            const [sourceTag, targetTag] = [localTags[i], localTags[j]].sort()
+            const key = `${sourceTag}|${targetTag}`
+            if (!tagLinkKeys.has(key)) {
+              tagLinkKeys.add(key)
+              links.push({ source: sourceTag, target: targetTag })
+            }
+          }
+        }
+      } else {
+        for (const tag of localTags) {
+          links.push({ source: source, target: tag })
+        }
       }
     }
   }
 
   const neighbourhood = new Set<SimpleSlug>()
   const wl: (SimpleSlug | "__SENTINEL")[] = [slug, "__SENTINEL"]
-  if (depth >= 0) {
+  if (tagOnly) {
+    tags.forEach((tag) => neighbourhood.add(tag))
+  } else if (depth >= 0) {
     while (depth >= 0 && wl.length > 0) {
       // compute neighbours
       const cur = wl.shift()!

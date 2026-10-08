@@ -17,6 +17,7 @@ export interface D3Config {
   opacityScale: number
   removeTags: string[]
   showTags: boolean
+  tagOnly?: boolean
   focusOnHover?: boolean
   enableRadial?: boolean
 }
@@ -69,7 +70,9 @@ export default ((opts?: Partial<GraphOptions>) => {
     if (opts?.mode === "global") {
       return (
         <div class={classNames(displayClass, "graph", "inline-global-graph")}>
-          <p class="graph-hint">Drag to explore · Scroll to zoom · Click a note to open it</p>
+          <p class="graph-hint">
+            Each node is a tag · Connected tags appear together in a note · Click a tag to open it
+          </p>
           <div class="graph-outer">
             <div class="graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
           </div>
