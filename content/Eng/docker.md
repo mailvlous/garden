@@ -5,6 +5,7 @@ tags:
   - docker
   - eng
   - software engineering
+published: '2026-10-08'
 ---
 is a platform used to build, package, and run applications inside containers. 
 
@@ -49,5 +50,49 @@ Think of it as the equivalent of:
 ```
 mkdir -p /app
 cd /app
+```
+
+If /app doesn't exist, Docker creates it automatically.  
+All subsequent relative file paths are resolved from /app, unless another working directory is specified.  
+Importantly, /app refers to a directory inside the image/container, not your computer's /app directory.  
+
+```
+COPY server.js .
+```
+
+Copies server.js from your local Docker build context into the image.  
+
+```
+EXPOSE 3000
+```
+
+Declares that the application inside the container is expected to listen on TCP port 3000.  
+However, an important distinction:  
+EXPOSE does not actually publish the port to your host computer.  
+To make the application accessible through your host's port 3000, run: 
+```
+docker run -p 3000:3000 my-app 
+```
+
+```
+CMD ["node", "server.js"]
+```
+
+Specifies the default command to ex ecute when the container starts.  
+It is equivalent in purpose to running:  
+```
+node server.js  
+```
+
+
+```
+# 1. Build the Docker image
+docker build -t my-app .
+
+# 2. Run a container from the image
+docker run -p 3000:3000 my-app
+
+# 3. Access the application
+curl http://localhost:3000
 ```
 
