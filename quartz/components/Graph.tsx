@@ -18,6 +18,7 @@ export interface D3Config {
   removeTags: string[]
   showTags: boolean
   tagOnly?: boolean
+  showNoteTitles?: boolean
   focusOnHover?: boolean
   enableRadial?: boolean
 }
@@ -71,7 +72,9 @@ export default ((opts?: Partial<GraphOptions>) => {
       return (
         <div class={classNames(displayClass, "graph", "inline-global-graph")}>
           <p class="graph-hint">
-            Each node is a tag · Connected tags appear together in a note · Click a tag to open it
+            {globalGraph.tagOnly && globalGraph.showNoteTitles
+              ? "Outlined nodes are tags · Smaller nodes are note titles · Click any node to open it"
+              : "Each node is a tag · Connected tags appear together in a note · Click a tag to open it"}
           </p>
           <div class="graph-outer">
             <div class="graph-container" data-cfg={JSON.stringify(globalGraph)}></div>

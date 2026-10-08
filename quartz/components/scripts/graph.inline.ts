@@ -86,6 +86,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     removeTags,
     showTags,
     tagOnly,
+    showNoteTitles,
     focusOnHover,
     enableRadial,
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
@@ -100,6 +101,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const tags: SimpleSlug[] = []
   const validLinks = new Set(data.keys())
   const tagLinkKeys = new Set<string>()
+  const taggedNotes = new Set<SimpleSlug>()
 
   const tweens = new Map<string, TweenNode>()
   for (const [source, details] of data.entries()) {
@@ -121,13 +123,20 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       tags.push(...localTags.filter((tag) => !tags.includes(tag)))
 
       if (tagOnly) {
-        for (let i = 0; i < localTags.length; i++) {
-          for (let j = i + 1; j < localTags.length; j++) {
-            const [sourceTag, targetTag] = [localTags[i], localTags[j]].sort()
-            const key = `${sourceTag}|${targetTag}`
-            if (!tagLinkKeys.has(key)) {
-              tagLinkKeys.add(key)
-              links.push({ source: sourceTag, target: targetTag })
+        if (showNoteTitles) {
+          if (localTags.length > 0) taggedNotes.add(source)
+          for (const tag of localTags) {
+            links.push({ source, target: tag })
+          }
+        } else {
+          for (let i = 0; i < localTags.length; i++) {
+            for (let j = i + 1; j < localTags.length; j++) {
+              const [sourceTag, targetTag] = [localTags[i], localTags[j]].sort()
+              const key = `${sourceTag}|${targetTag}`
+              if (!tagLinkKeys.has(key)) {
+                tagLinkKeys.add(key)
+                links.push({ source: sourceTag, target: targetTag })
+              }
             }
           }
         }
@@ -143,6 +152,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const wl: (SimpleSlug | "__SENTINEL")[] = [slug, "__SENTINEL"]
   if (tagOnly) {
     tags.forEach((tag) => neighbourhood.add(tag))
+    if (showNoteTitles) taggedNotes.forEach((note) => neighbourhood.add(note))
   } else if (depth >= 0) {
     while (depth >= 0 && wl.length > 0) {
       // compute neighbours
