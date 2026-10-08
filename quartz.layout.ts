@@ -7,6 +7,24 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.ConditionalRender({
+      component: Component.Graph({
+        mode: "global",
+        globalGraph: {
+          depth: -1,
+          scale: 0.9,
+          repelForce: 0.7,
+          centerForce: 0.25,
+          linkDistance: 40,
+          fontSize: 0.7,
+          opacityScale: 1.6,
+          showTags: false,
+          focusOnHover: true,
+          enableRadial: true,
+        },
+      }),
+      condition: (page) => page.fileData.slug === "graph",
+    }),
+    Component.ConditionalRender({
       component: Component.VisitorCounter({
         endpoint: "https://garden-visitor-counter.mailvelous.workers.dev",
       }),
@@ -47,16 +65,19 @@ export const defaultContentPageLayout: PageLayout = {
         },
         { Component: Component.Darkmode() },
         { Component: Component.ReaderMode() },
+        { Component: Component.GraphLink() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "graph",
+    }),
     Component.ConditionalRender({
       component: Component.RecentNotes({
         title: "Recent Writing",
         limit: 3,
         showTags: false,
         dateType: "published",
-        filter: (page) => page.slug !== "index",
+        filter: (page) => page.slug !== "index" && page.slug !== "graph",
         sort: (first, second) =>
           (second.dates?.published?.getTime() ?? 0) - (first.dates?.published?.getTime() ?? 0),
       }),
@@ -64,18 +85,21 @@ export const defaultContentPageLayout: PageLayout = {
     }),
   ],
   right: [
-    Component.Graph({
-      localGraph: {
-        depth: 2,
-        scale: 1.2,
-        repelForce: 0.8,
-        centerForce: 0.35,
-        linkDistance: 38,
-        fontSize: 0.8,
-        opacityScale: 1.8,
-        showTags: true,
-        focusOnHover: false,
-      },
+    Component.ConditionalRender({
+      component: Component.Graph({
+        localGraph: {
+          depth: 2,
+          scale: 1.2,
+          repelForce: 0.8,
+          centerForce: 0.35,
+          linkDistance: 38,
+          fontSize: 0.8,
+          opacityScale: 1.8,
+          showTags: true,
+          focusOnHover: false,
+        },
+      }),
+      condition: (page) => page.fileData.slug !== "graph",
     }),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
@@ -95,9 +119,12 @@ export const defaultListPageLayout: PageLayout = {
           grow: true,
         },
         { Component: Component.Darkmode() },
+        { Component: Component.GraphLink() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "graph",
+    }),
   ],
   right: [],
 }

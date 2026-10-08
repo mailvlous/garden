@@ -71,3 +71,22 @@
     }
   }
 }
+
+.graph.inline-global-graph {
+  & > .graph-hint {
+    color: var(--gray);
+    font-size: 0.85rem;
+    margin: 0 0 0.75rem;
+  }
+
+  & > .graph-outer {
+    height: min(72vh, 720px);
+    min-height: 520px;
+    margin: 0;
+
+    @media all and ($mobile) {
+      height: 440px;
+      min-height: 0;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.graph-link {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  justify-content: center;
+  margin: 0;
+  width: 22px;
+
+  & svg {
+    fill: var(--light);
+    height: 21px;
+    overflow: visible;
+    stroke: var(--darkgray);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.6;
+    transition: stroke 0.15s ease;
+    width: 21px;
+  }
+
+  &:hover svg {
+    stroke: var(--secondary);
+  }
+}
