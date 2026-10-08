@@ -7,15 +7,6 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.ConditionalRender({
-      component: Component.RecentNotes({
-        title: "Recent Writing",
-        limit: 6,
-        showTags: true,
-        filter: (page) => page.slug !== "index",
-      }),
-      condition: (page) => page.fileData.slug === "index",
-    }),
-    Component.ConditionalRender({
       component: Component.VisitorCounter({
         endpoint: "https://garden-visitor-counter.mailvelous.workers.dev",
       }),
@@ -55,6 +46,15 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer(),
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title: "Recent Writing",
+        limit: 6,
+        showTags: true,
+        filter: (page) => page.slug !== "index",
+      }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
   ],
   right: [
     Component.Graph({
