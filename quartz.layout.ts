@@ -31,6 +31,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.ConditionalRender({
+      component: Component.MobileOnly(Component.TableOfContents()),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
   ],
   left: [
     Component.PageTitle(),
@@ -49,8 +53,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ConditionalRender({
       component: Component.RecentNotes({
         title: "Recent Writing",
-        limit: 6,
-        showTags: true,
+        limit: 3,
+        showTags: false,
         filter: (page) => page.slug !== "index",
       }),
       condition: (page) => page.fileData.slug === "index",

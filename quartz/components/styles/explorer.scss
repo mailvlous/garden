@@ -35,6 +35,11 @@
   min-height: 1.2rem;
   flex: 0 1 auto;
 
+  @media all and not ($mobile) {
+    min-height: 12rem;
+    flex: 1 1 auto;
+  }
+
   &.collapsed {
     flex: 0 1 1.2rem;
 

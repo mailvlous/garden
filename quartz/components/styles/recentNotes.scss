@@ -22,3 +22,15 @@
     }
   }
 }
+
+.sidebar.left > .recent-notes {
+  flex: 0 0 auto;
+  max-height: 15rem;
+  overflow-y: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--lightgray);
+
+  & > ul.recent-ul > li {
+    margin: 0.75rem 0;
+  }
+}
