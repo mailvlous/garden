@@ -6,6 +6,7 @@ tags:
   - semester 5
 title: Week 3, part 1
 draft: false
+published: 2026-10-04
 ---
 
 **Types of an image**  

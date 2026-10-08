@@ -7,6 +7,7 @@ tags:
   - fourth semester
   - data
   - data modelling
+published: 2026-02-12
 ---
 
 # Need of Data Analytics

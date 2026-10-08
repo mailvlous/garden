@@ -6,6 +6,7 @@ tags:
   - computer science
   - fourth semester
   - calculus 2
+published: 2026-03-04
 ---
 
 

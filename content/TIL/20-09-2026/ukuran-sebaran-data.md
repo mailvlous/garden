@@ -6,6 +6,7 @@ tags:
   - statistic and probability
 title: ukuran sebaran data
 draft: false
+published: 2026-09-20
 ---
 
 ##### range

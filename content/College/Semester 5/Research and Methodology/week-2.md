@@ -6,6 +6,7 @@ tags:
   - college
 title: Week 2
 draft: false
+published: 2026-09-19
 ---
 
 gap: yang sudah diketahui apa, yg belum apa  

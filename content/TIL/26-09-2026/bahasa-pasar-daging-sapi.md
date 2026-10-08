@@ -5,6 +5,7 @@ tags:
   - sapi
   - daging
   - pasar
+published: 2026-09-26
 ---
 Tenderloin = Has dalam  
 Sirloin = Has luar  

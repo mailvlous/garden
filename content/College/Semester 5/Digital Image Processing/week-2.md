@@ -5,6 +5,7 @@ tags:
   - image
 title: Week 2
 draft: false
+published: 2026-10-04
 ---
 
 ![image](/assets/image-20261004061535-07f2dc51.png)

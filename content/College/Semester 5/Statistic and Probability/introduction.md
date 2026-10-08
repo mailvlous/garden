@@ -6,6 +6,7 @@ tags:
   - statistic
   - math
   - semester 5
+published: 2026-09-07
 ---
 ### ETS
 - statistika deskriptif

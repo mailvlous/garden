@@ -2,6 +2,7 @@
 title: Welcome Selamat Datang
 draft: false
 tags: []
+published: 2021-07-18
 ---
 ![alt text](image.png)
 

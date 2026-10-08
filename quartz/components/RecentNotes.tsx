@@ -3,7 +3,7 @@ import { FullSlug, SimpleSlug, resolveRelative } from "../util/path"
 import { QuartzPluginData } from "../plugins/vfile"
 import { byDateAndAlphabetical } from "./PageList"
 import style from "./styles/recentNotes.scss"
-import { Date, getDate } from "./Date"
+import { Date, getDate, ValidDateType } from "./Date"
 import { GlobalConfiguration } from "../cfg"
 import { i18n } from "../i18n"
 import { classNames } from "../util/lang"
@@ -13,6 +13,7 @@ interface Options {
   limit: number
   linkToMore: SimpleSlug | false
   showTags: boolean
+  dateType?: ValidDateType
   filter: (f: QuartzPluginData) => boolean
   sort: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
@@ -42,6 +43,11 @@ export default ((userOpts?: Partial<Options>) => {
           {pages.slice(0, opts.limit).map((page) => {
             const title = page.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title
             const tags = page.frontmatter?.tags ?? []
+            const date = page.dates
+              ? opts.dateType
+                ? page.dates[opts.dateType]
+                : getDate(cfg, page)
+              : undefined
 
             return (
               <li class="recent-li">
@@ -53,9 +59,9 @@ export default ((userOpts?: Partial<Options>) => {
                       </a>
                     </h3>
                   </div>
-                  {page.dates && (
+                  {date && (
                     <p class="meta">
-                      <Date date={getDate(cfg, page)!} locale={cfg.locale} />
+                      <Date date={date} locale={cfg.locale} />
                     </p>
                   )}
                   {opts.showTags && (

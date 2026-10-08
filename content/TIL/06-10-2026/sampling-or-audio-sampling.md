@@ -6,6 +6,7 @@ tags:
   - music
 title: sampling or audio sampling
 draft: false
+published: 2026-10-06
 ---
 
 analog signals are continuous signals, which means if you take one second of an analog signal, you can divide this second into [put the greatest number you can think of and I hope it’s a big one !]  parts that last a fraction of second.  In the digital world, you can’t afford to store an infinite amount of information. You need to have a minimum unit, for example 1 millisecond. During this unit of time the sound cannot change so this unit needs to be short enough so that the digital song sounds like the analog one and big enough to limit the space needed for storing the music.

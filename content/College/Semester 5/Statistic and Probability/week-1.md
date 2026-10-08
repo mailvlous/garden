@@ -8,6 +8,7 @@ tags:
   - research methodology
 title: week 1
 draft: false
+published: 2026-09-07
 ---
 
 statistika

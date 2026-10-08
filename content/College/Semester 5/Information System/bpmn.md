@@ -6,6 +6,7 @@ tags:
   - college
 title: bpmn
 draft: false
+published: 2026-09-30
 ---
 
 Business Process Model and Notation (BPMN) adalah standar global berupa notasi grafis untuk memvisualisasikan dan memodelkan alur proses bisnis secara end-to-end

@@ -11,6 +11,7 @@ tags:
   - spatial
 title: Week 5
 draft: false
+published: 2026-10-05
 ---
 
 konvolusi

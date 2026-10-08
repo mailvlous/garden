@@ -5,6 +5,7 @@ tags:
   - software engineering
 title: docker
 draft: false
+published: 2026-10-08
 ---
 
 is a platform used to build, package, and run applications inside containers. 

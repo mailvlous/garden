@@ -5,6 +5,7 @@ tags:
   - college
   - computer science
   - fourth semester
+published: 2026-02-10
 ---
 
 > Some history: 

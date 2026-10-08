@@ -55,7 +55,10 @@ export const defaultContentPageLayout: PageLayout = {
         title: "Recent Writing",
         limit: 3,
         showTags: false,
+        dateType: "published",
         filter: (page) => page.slug !== "index",
+        sort: (first, second) =>
+          (second.dates?.published?.getTime() ?? 0) - (first.dates?.published?.getTime() ?? 0),
       }),
       condition: (page) => page.fileData.slug === "index",
     }),

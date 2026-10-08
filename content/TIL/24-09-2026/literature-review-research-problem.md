@@ -2,6 +2,7 @@
 tags:
 title: literature review, research problem
 draft: false
+published: 2026-09-24
 ---
 
 literature review: mengumpulkan dan membandingan

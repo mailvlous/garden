@@ -5,6 +5,7 @@ tags:
   - college
 title: Week 3, part 2
 draft: false
+published: 2026-10-04
 ---
 
 ### Digital representation      

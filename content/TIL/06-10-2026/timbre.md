@@ -6,6 +6,7 @@ tags:
   - music theory
 title: timbre
 draft: false
+published: 2026-10-06
 ---
 
 the same note doesn’t sound exactly the same if it’s played by a guitar, a piano, a violin or a human singer. The reason is that each instrument has its own timbre for a given note.  

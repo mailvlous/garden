@@ -7,6 +7,7 @@ tags:
   - sociology
 title: protestan individualis katolik kolektif?
 draft: false
+published: 2026-09-11
 ---
 
 so is it really true that  
