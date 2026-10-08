@@ -84,6 +84,11 @@
     min-height: 520px;
     margin: 0;
 
+    & > .graph-container {
+      height: 100%;
+      width: 100%;
+    }
+
     @media all and ($mobile) {
       height: 440px;
       min-height: 0;
