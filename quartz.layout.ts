@@ -5,7 +5,23 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title: "Recent Writing",
+        limit: 6,
+        showTags: true,
+        filter: (page) => page.slug !== "index",
+      }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.VisitorCounter({
+        endpoint: "https://garden-visitor-counter.mailvelous.workers.dev",
+      }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",

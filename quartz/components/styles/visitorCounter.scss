@@ -1,0 +1,19 @@
+.visitor-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--lightgray);
+  color: var(--gray);
+
+  .visitor-count {
+    color: var(--secondary);
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .visitor-label {
+    font-size: 0.9rem;
+  }
+}

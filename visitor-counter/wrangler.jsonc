@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "garden-visitor-counter",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-08",
+  "d1_databases": [
+    {
+      "binding": "ANALYTICS",
+      "database_name": "garden-analytics",
+      "database_id": "11647876-0efe-4938-a2ab-57059f9a699d",
+      "migrations_dir": "migrations",
+    },
+  ],
+}
