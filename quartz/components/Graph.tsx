@@ -24,9 +24,11 @@ export interface D3Config {
 interface GraphOptions {
   localGraph: Partial<D3Config> | undefined
   globalGraph: Partial<D3Config> | undefined
+  mode: "local" | "global"
 }
 
 const defaultOptions: GraphOptions = {
+  mode: "local",
   localGraph: {
     drag: true,
     zoom: true,
@@ -63,6 +65,19 @@ export default ((opts?: Partial<GraphOptions>) => {
   const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
+
+    if (opts?.mode === "global") {
+      return (
+        <div class={classNames(displayClass, "graph", "inline-global-graph")}>
+          <h3>{i18n(cfg.locale).components.graph.title}</h3>
+          <p class="graph-hint">Drag to explore · Scroll to zoom · Click a note to open it</p>
+          <div class="graph-outer">
+            <div class="graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div class={classNames(displayClass, "graph")}>
         <h3>{i18n(cfg.locale).components.graph.title}</h3>
