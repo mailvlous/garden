@@ -1,13 +1,12 @@
 ---
+title: introduction
+draft: false
 tags:
   - ctf
   - reverse engineering
   - engineering
-title: begin, introduction!
-draft: false
-published: 2026-10-10
+published: '2026-10-10T00:00:00.000Z'
 ---
-
 every step of forward engineering, information is lost  
 so reverse engineering is getting back that lost information
 
