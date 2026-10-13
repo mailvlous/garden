@@ -1,14 +1,13 @@
 ---
+title: mangling
+draft: false
 tags:
   - mangling
   - reverse engineering
   - engineering
   - ctf
-title: mangling
-draft: false
-published: 2026-10-13
+published: '2026-10-13T00:00:00.000Z'
 ---
-
 mangling is a general term for data transformation, not encryption by itself. In reverse engineering, you need to identify the transformations and undo them in reverse order to recover the original input.
 
 #### example 1
@@ -92,3 +91,26 @@ input[3] = original[3];
 // CONCAT12(uVar2, (undefined2)local_16)
 input[2] = temp;
 ```
+in python:
+```
+data = bytearray(b"jcwfd")
+
+# uVar1 = local_16
+uVar1 = data[:4]
+
+# uVar2 = local_16._1_1_
+uVar2 = data[1]
+
+# CONCAT11(local_16._2_1_, (undefined1)local_16)
+data[1] = data[2]
+
+# SUB41(uVar1, 3)
+data[3] = uVar1[3]
+
+# CONCAT12(uVar2, (undefined2)local_16)
+data[2] = uVar2
+
+print(data.decode())  # jwcfd
+```
+
+CONCAT combines bytes into a number, but those bytes are stored in reverse order in memory on x86-64 (little-endian).
