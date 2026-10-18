@@ -8,7 +8,7 @@ published: 2026-10-18
 > purpose for statistic and probabilistic assignment
 
 ### summary
-this paper discuss about forecast/using data analysis for Bitcoin prices over 15-day horizon by using 2 predictive modelling predictions. The Bayesian model provided probabilistic insights. On the other hand, the LSTM model provided temporal dependencies.
+this paper discuss about forecast/using data analysis for Bitcoin prices over 15-day collected from Yahoo Finance  horizon by using 2 predictive modelling predictions. The Bayesian model provided probabilistic insights. On the other hand, the LSTM model provided temporal dependencies.
 
 #### bayesian state-space method
 
