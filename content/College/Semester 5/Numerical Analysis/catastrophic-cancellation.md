@@ -51,3 +51,10 @@ Limited precision
 
 
 The small difference disappears because the original numbers have already lost precision during rounding.
+
+
+How to prevent it
+- Avoid subtracting nearly equal floating-point numbers when possible.
+- Reformulate expressions algebraically, such as using rationalization.
+- Use numerically stable algorithms.
+- Increase precision when necessary, although higher precision alone does not eliminate the underlying problem.
