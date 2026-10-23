@@ -1,11 +1,25 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
+const RecentWriting = Component.RecentNotes({
+  title: "Recent Writing",
+  limit: 3,
+  showTags: false,
+  dateType: "published",
+  filter: (page) => page.slug !== "index" && page.slug !== "graph",
+  sort: (first, second) =>
+    (second.dates?.published?.getTime() ?? 0) - (first.dates?.published?.getTime() ?? 0),
+})
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
+    Component.ConditionalRender({
+      component: Component.MobileOnly(RecentWriting),
+      condition: (page) => page.fileData.slug === "index",
+    }),
     Component.ConditionalRender({
       component: Component.Graph({
         mode: "global",
@@ -74,15 +88,7 @@ export const defaultContentPageLayout: PageLayout = {
       filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "graph",
     }),
     Component.ConditionalRender({
-      component: Component.RecentNotes({
-        title: "Recent Writing",
-        limit: 3,
-        showTags: false,
-        dateType: "published",
-        filter: (page) => page.slug !== "index" && page.slug !== "graph",
-        sort: (first, second) =>
-          (second.dates?.published?.getTime() ?? 0) - (first.dates?.published?.getTime() ?? 0),
-      }),
+      component: Component.DesktopOnly(RecentWriting),
       condition: (page) => page.fileData.slug === "index",
     }),
   ],
