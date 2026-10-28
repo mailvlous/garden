@@ -6,17 +6,11 @@ tags:
   - computer science
   - fourth semester
   - calculus 2
-published: 2026-03-04
+published: '2026-03-04T00:00:00.000Z'
 ---
-
 
 # Some of test
 
-Sip, kita simpan dulu Deret Taylor dan Maclaurin. Mari kita fokus menyusun "senjata" untuk menghadapi soal-soal konvergen dan divergen.
-
-Agar lebih mudah dipahami secara visual, ini adalah alur berpikir yang biasa digunakan untuk memilih uji yang tepat:
-
-Berikut adalah *cheat sheet* lengkap dari semua uji kekonvergenan deret yang sudah kita bahas, disusun berdasarkan kapan kamu harus menggunakannya.
 
 ## 1. Uji Awal (Langkah Pertama)
 
@@ -179,6 +173,3 @@ Apakah kamu mau aku berikan satu soal acak, lalu kita coba tentukan bersama uji 
 * **Contoh:** $\sum_{n=1}^{\infty} \frac{(-1)^n}{n}$ (Deret Harmonik Ganti Tanda)
 * **Alasan:** Tanda minusnya diabaikan dulu, lalu kita cek $\frac{1}{n}$. Karena sukunya makin mengecil ($\frac{1}{n+1} \leq \frac{1}{n}$) dan limitnya $\lim_{n \to \infty} \frac{1}{n} = 0$, deret ini **Konvergen**.
 
----
-
-Apakah kamu ingin kita membedah satu contoh soal perhitungan komplit (dari awal sampai akhir) menggunakan salah satu uji di atas?
