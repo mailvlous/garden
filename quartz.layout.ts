@@ -41,7 +41,7 @@ export const sharedPageComponents: SharedLayout = {
       condition: (page) => page.fileData.slug === "graph",
     }),
     Component.ConditionalRender({
-      component: Component.VisitorCounter({
+      component: Component.GardenSummary({
         endpoint: "https://garden-visitor-counter.mailvelous.workers.dev",
       }),
       condition: (page) => page.fileData.slug === "index",

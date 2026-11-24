@@ -1,0 +1,25 @@
+.garden-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--lightgray);
+
+  .visitor-counter {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .garden-summary {
+    align-items: flex-start;
+  }
+}
