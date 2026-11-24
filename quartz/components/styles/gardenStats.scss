@@ -1,7 +1,8 @@
 .garden-stats {
   display: flex;
-  flex: 1 1 20rem;
+  flex: 0 1 auto;
   align-items: center;
+  margin-left: auto;
   min-width: 0;
 
   > h2,
@@ -19,7 +20,6 @@
 
   .garden-stats-grid {
     display: flex;
-    flex: 1;
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0.35rem 0.8rem;
@@ -49,5 +49,6 @@
 @media (max-width: 800px) {
   .garden-stats {
     flex-basis: 100%;
+    margin-left: 0;
   }
 }
